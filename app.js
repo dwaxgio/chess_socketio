@@ -26,12 +26,12 @@ http.listen(port, function () {
 // });
 
 // para recibir move
+// Cada vez que resiva un mensaje "move", lo va a transmitir a todos los clientes
 io.on("connection", function (socket) {
   console.log("new connection");
 
-  // Cada vez que resiva un mensaje "move", lo va a transmitir a todos los clientes
   socket.on("move", function (msg) {
-    socket.boradcast.emit("move", msg);
+    socket.broadcast.emit("move", msg);
   });
 });
 // Setup socket server /
